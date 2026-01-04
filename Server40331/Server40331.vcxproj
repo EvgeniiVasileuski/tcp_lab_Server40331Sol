@@ -84,8 +84,10 @@
       <ModuleDefinitionFile>Server40331.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Message>regsvr32 /s "$(TargetPath)"</Message>
-      <Command>regsvr32 /s "$(TargetPath)" echo Server registered successfully</Command>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -106,10 +108,12 @@
       <ModuleDefinitionFile>Server40331.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>regsvr32 /s "$(TargetPath)" echo Server registered successfully</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>regsvr32 /s "$(TargetPath)"</Message>
+      <Message>
+      </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
