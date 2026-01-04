@@ -1,0 +1,10 @@
+LIBRARY
+
+; Server.def : Declares the module parameters for the DLL. 
+; 
+ 
+ 
+EXPORTS 
+; Имена точек входа для внешнего пользования помещаются здесь 
+DllGetClassObject   PRIVATE 
+DllCanUnloadNow     PRIVATE 
