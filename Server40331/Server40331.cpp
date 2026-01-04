@@ -2,9 +2,19 @@
 
 #include <initguid.h> 
 #include "CMath.h" 
+#include "Registry.h"
 
 long    g_lObjs = 0;
 long    g_lLocks = 0;
+
+static HMODULE g_hModule = NULL;
+// Friendly name of component 
+// DLL module handle 
+const wchar_t g_szFriendlyName[] = L"TCP_Lab1 Math Component 40331";
+// Version-independent ProgID 
+const wchar_t g_szVerIndProgID[] = L"Server40331.MathCom";
+// ProgID 
+const wchar_t g_szProgID[] = L"Server40331.MathCom.1";
 
 STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, void**
     ppv)
@@ -42,3 +52,36 @@ STDAPI DllCanUnloadNow(void)
     else
         return(S_OK);
 }
+// 
+// Server registration 
+// 
+STDAPI DllRegisterServer()
+{
+    return RegisterServer(g_hModule,
+         CLSID_CMATH,
+         g_szFriendlyName,
+         g_szVerIndProgID,
+         g_szProgID);
+}
+// 
+
+// Server unregistration 
+// 
+STDAPI DllUnregisterServer()
+{
+    return UnregisterServer(CLSID_CMATH,
+            g_szVerIndProgID,
+            g_szProgID);
+}
+
+// DLL module information 
+// 
+BOOL APIENTRY DllMain(HANDLE hModule, DWORD dwReason, void* lpReserved)
+{
+    if (dwReason == DLL_PROCESS_ATTACH)
+    {
+         g_hModule = (HMODULE)hModule;
+    }
+    return TRUE;
+}
+

@@ -8,3 +8,5 @@ EXPORTS
 ; Имена точек входа для внешнего пользования помещаются здесь 
 DllGetClassObject   PRIVATE 
 DllCanUnloadNow     PRIVATE 
+DllRegisterServer   PRIVATE 
+DllUnregisterServer PRIVATE
